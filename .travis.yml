@@ -23,12 +23,13 @@ deploy:
   #   skip_cleanup: true
   #   on:
   #     tags: true
-  - echo "testing2 1, 2, 3"
-  - echo $GIT_USER_NAME
-  - echo $GIT_EMAIL
   - provider: npm
     email: $EMAIL
     api_key: $NPM_TOKEN
     on:
       branch: master
       tags: true
+after_deploy:
+  - echo "testing2 1, 2, 3"
+  - echo $GIT_USER_NAME
+  - echo $GIT_EMAIL
