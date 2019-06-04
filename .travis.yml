@@ -5,8 +5,8 @@ branches:
   only:
     - master
 # cache: npm
-# script:
-#   - npm run transpile
+script:
+  - npm run prepublishOnly
 before_deploy:
   # Set up git user name and tag this commit
   # - echo "testing 1, 2, 3"
