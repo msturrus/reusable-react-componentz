@@ -7,6 +7,12 @@ branches:
 cache: npm
 script:
   - npm run transpile
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name $GIT_USER_NAME
+  - git config --local user.email $GIT_EMAIL
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag -a $TRAVIS_TAG
 deploy:
   - provider: releases
     api_key: $GITHUB_KEY
