@@ -5,8 +5,8 @@ branches:
   only:
     - master
 cache: npm
-# script:
-#   - npm run transpile
+script:
+  - npm run transpile
 before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name $GIT_USER_NAME
