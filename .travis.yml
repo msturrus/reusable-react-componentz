@@ -10,8 +10,8 @@ script:
 before_deploy:
   # Set up git user name and tag this commit
   - echo "testing 1, 2, 3"
-  - echo $GIT_USER_NAME
-  - echo $GIT_EMAIL
+  # - echo $GIT_USER_NAME
+  # - echo $GIT_EMAIL
   # - git config --local user.name $GIT_USER_NAME
   # - git config --local user.email $GIT_EMAIL
   # - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
