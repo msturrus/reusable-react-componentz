@@ -4,7 +4,7 @@ import Test from "./components/test/test.component";
 
 const MyComponent = () => (
   <h1>
-    Hellozzzz from My Component. My name is Bellion and I'm the MAN (for now)!
+    Hellozzzz zzfrom My Component. My name is Bellion and I'm the MAN (for now)!
   </h1>
 );
 
