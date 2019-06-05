@@ -9,22 +9,19 @@ script:
   - npm run prepublishOnly
 before_deploy:
   # Set up git user name and tag this commit
-  # - echo "testing 1, 2, 3"
-  # - echo $GIT_USER_NAME
-  # - echo $GIT_EMAIL
   - git config --local user.name $GIT_USER_NAME
   - git config --local user.email $GIT_EMAIL
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  # - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - export TRAVIS_TAG=v$(npm view . version)
   - git tag $TRAVIS_TAG
 deploy:
   - provider: releases
     api_key: $GITHUB_KEY
-    file: "README.md"
     skip_cleanup: true
     on:
       branch: master
-  - provider: npm
-    email: $EMAIL
-    api_key: $NPM_TOKEN
-    on:
-      branch: master
+  # - provider: npm
+  #   email: $EMAIL
+  #   api_key: $NPM_TOKEN
+  #   on:
+  #     branch: master
