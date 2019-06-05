@@ -9,18 +9,17 @@ script:
   - npm run prepublishOnly
 before_deploy:
   # Set up git user name and tag this commit
-  if ! [[ $TRAVIS_TAG ]]; then
+  - tag IS present
   - git config --local user.name $GIT_USER_NAME
   - git config --local user.email $GIT_EMAIL
   - export TRAVIS_TAG=v$(node -pe "require('./package.json').version")
   - git tag $TRAVIS_TAG
-  fi
 deploy:
-  - provider: releases
-    api_key: $GITHUB_KEY
-    skip_cleanup: true
-    on:
-      branch: master
+  # - provider: releases
+  #   api_key: $GITHUB_KEY
+  #   skip_cleanup: true
+  #   on:
+  #     branch: master
   - provider: npm
     email: $EMAIL
     api_key: $NPM_TOKEN
